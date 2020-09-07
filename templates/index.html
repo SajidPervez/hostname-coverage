@@ -1,0 +1,74 @@
+<style>
+  table {
+    width:70%;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  table tr:nth-child(even) {
+    background-color: #eee;
+  }
+  table tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  table th {
+    background-color: black;
+    color: white;
+  }
+</style>
+
+<h1>{{ h1 }}</h1>
+  {% if list|count > 1 %}
+    <h3>Total :{{list[1]|count}}</h3> 
+    <h3>Covered :{{list[0]|count}}</h3> 
+    <table>
+      <tr>
+        <th>Hostname</th>
+        <th>Covered ( {{list[0]|count}} / {{list[1]|count}} )</th>
+      </tr>
+      {%for i in list[0] %}
+        <tr>
+          <td>{{ i }}</td>
+          <td>true</td>
+        </tr>
+      {% endfor %}
+      {%for i in list[1] %}
+        <tr>
+          <td>{{ i }}</td>
+          <td>false</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <table>
+      <tr>
+        <th>Hostname</th>
+      </tr>
+      {% for val in list %}
+        <tr>
+          <td>{{ val }}</td>
+        </tr> 
+      {% endfor %}
+    </table> 
+  {% endif %}
+
+<!---{% if show_one %}
+  <h2>one</h2>
+{% endif %}
+ 
+{% if show_two %}
+  <h2>two</h2>
+{% endif %}
+
+
+<ul>
+{% for val in list %}
+   <li>{{ val }}</li>
+{% endfor %}
+</ul>
+-->
