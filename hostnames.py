@@ -6,8 +6,8 @@ from generate_report import *
 
 # setup proxy
 proxy = {
-    'http' : 'http://webproxy.agl.com.au:8080',
-    'https' : 'http://webproxy.agl.com.au:8080',
+    'http' : '',
+    'https' : '',
 }
 # root is absolute path to project folder
 root = os.path.dirname(os.path.abspath(__file__))
